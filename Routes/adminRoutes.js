@@ -4,4 +4,6 @@ const Admin=require("../Components/adminComponent");
 router.route("/addcourse")
     .post(Admin.addCourse);
 
+router.route("/addcollege")
+    .post(Admin.addCollege);
 module.exports=router;
