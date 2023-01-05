@@ -1,0 +1,8 @@
+key features:
+1- REST Api structure
+2- MVC model
+
+
+Security features:
+1-Password hashing
+2-
