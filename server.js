@@ -3,7 +3,7 @@ const app=express();
 if (process.env.NODE_ENV !== "production") {
     require("dotenv").config();
 }
-
+const checkAdmin=require("./Middlewares/checkAdminAuth");
 const bodyParser = require("body-parser");
 const cors = require('cors');
 const mongoose = require("mongoose");
@@ -34,7 +34,7 @@ app.use(cors());
 // Routes
 app.use("/authentication",jsonParser,authRoutes);
 app.use("/user",jsonParser,userRoutes);
-app.use("/admin",jsonParser,adminRoutes);
+app.use("/admin",jsonParser,checkAdmin,adminRoutes);
 app.listen(PORT,()=>{
     console.log(`Listening on Port : ${PORT}`);
 })

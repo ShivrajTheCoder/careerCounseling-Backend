@@ -5,7 +5,7 @@ const bcrypt = require("bcrypt");
 //exports 
 const exp = module.exports;
 
-exp.Login = async(req, res, next) => {
+exp.Login = async (req, res, next) => {
     // console.log(req.body);
     const { phonenumber, password } = req.body;
     await User.findOne({ phonenumber })
@@ -23,23 +23,37 @@ exp.Login = async(req, res, next) => {
                     })
                 }
                 if (resp) {
+                    let token;
                     // console.log(result);
-                    const token = jwt.sign({
-                        phonenumber: result.phonenumber,
-                        userId: result._id
-                    },
-                        process.env.JWT_USER_KEY,
-                        {
-                            expiresIn: "1h",
-                        }
-                    )
+                    if (result.admin == false) {
+                         token = jwt.sign({
+                            phonenumber: result.phonenumber,
+                            userId: result._id
+                        },
+                            process.env.JWT_USER_KEY,
+                            {
+                                expiresIn: "1h",
+                            }
+                        )
+                    }
+                    else{
+                         token = jwt.sign({
+                            phonenumber: result.phonenumber,
+                            userId: result._id
+                        },
+                            process.env.JWT_ADMIN_KEY,
+                            {
+                                expiresIn: "1h",
+                            }
+                        )
+                    }
                     // console.log(resp._id);
                     return res.status(200).json({
                         message: "Signed In",
                         token,
                         userId: result._id,
-                        username:result.username,
-                        isAdmin:result.admin
+                        username: result.username,
+                        isAdmin: result.admin
                     })
                 }
                 return res.status(500).json({
@@ -55,7 +69,7 @@ exp.Signup = async (req, res, next) => {
     const { username, phonenumber, password } = req.body;
     await User.find({ phonenumber })
         .then(result => {
-            if (result.length>0) {
+            if (result.length > 0) {
                 return res.status(409).json({
                     message: "User already exists",
                 })
