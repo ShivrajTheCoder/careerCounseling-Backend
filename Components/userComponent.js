@@ -1,5 +1,6 @@
 const Colleges = require("../Models/Colleges");
 const Courses = require("../Models/Courses");
+const Professions = require("../Models/Professions");
 const User = require("../Models/User");
 const exp=module.exports;
 
@@ -125,6 +126,22 @@ exp.getCourse=async(req,res,next)=>{
         .catch(error=>{
             return res.status(500).json({
                 message:"Internal Server Error"
+            })
+        })
+}
+
+
+exp.getAllProfessions=async(req,res,next)=>{
+    await Professions.find({})
+        .then(response=>{
+            return res.status(200).json({
+                professions:response
+            })
+        })
+        .catch(error=>{
+            return res.status(500).json({
+                message:"Internal Server Error",
+                error
             })
         })
 }

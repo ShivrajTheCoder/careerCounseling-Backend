@@ -12,9 +12,13 @@ router.route("/getallcolleges")
 
 router.route("/getallcourses")
     .get(User.getAllCourses);
+router.route("/getallprofessions")
+    .get(User.getAllProfessions);
 
 router.route("/getcollege/:id")
     .get(User.getCollege);
 router.route("/getcourse/:id")
     .get(User.getCourse);
+
+
 module.exports=router;
