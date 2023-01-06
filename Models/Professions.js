@@ -16,9 +16,6 @@ const professionSchema=new Schema({
         minLength:20,
         required:true
     },
-    topNames:[{
-        type:String
-    }],
     stream:{
         type:String,
         enum:["science","commerce","arts"],

@@ -80,7 +80,8 @@ exp.addProfession = async (req, res, next) => {
                     message: "Profession is already added",
                 })
             }
-            const profession = new Professions(req.body);
+            const profession = new Professions({...req.body});
+            console.log(profession);
             await profession.save()
                 .then(response => {
                     return res.status(201).json({
