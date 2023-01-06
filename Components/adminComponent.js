@@ -1,6 +1,7 @@
 const exp = module.exports;
 const Colleges = require("../Models/Colleges");
 const Course = require("../Models/Courses");
+const Professions = require("../Models/Professions");
 
 exp.addCourse = async (req, res, next) => {
     // console.log(req.body);
@@ -66,6 +67,37 @@ exp.addCollege = async (req, res, next) => {
             return res.status(500).json({
                 message: "Internal Server Error",
                 error
+            })
+        })
+}
+
+exp.addProfession = async (req, res, next) => {
+    console.log(req.body);
+    await Professions.find({ name: req.body.name })
+        .then(async result => {
+            if (result.length > 0) {
+                return res.status(409).json({
+                    message: "Profession is already added",
+                })
+            }
+            const profession = new Professions(req.body);
+            await profession.save()
+                .then(response => {
+                    return res.status(201).json({
+                        message: "Profession added",
+                    })
+                })
+                .catch(error => {
+                    return res.status(500).json({
+                        error,
+                        message: "Internal server error"
+                    })
+                })
+        })
+        .catch(error => {
+            return res.status(500).json({
+                error,
+                message: "Internal server error"
             })
         })
 }

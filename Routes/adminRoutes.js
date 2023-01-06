@@ -5,5 +5,8 @@ router.route("/addcourse")
     .post(Admin.addCourse);
 
 router.route("/addcollege")
-    .post(Admin.addCollege);
+.post(Admin.addCollege);
+
+router.route("/addprofession")
+    .post(Admin.addProfession);
 module.exports=router;
