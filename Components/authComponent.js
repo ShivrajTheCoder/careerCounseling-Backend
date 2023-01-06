@@ -2,8 +2,6 @@ const User = require("../Models/User");
 const jwt = require("jsonwebtoken");
 // library import
 const bcrypt = require("bcrypt");
-
-
 //exports 
 const exp = module.exports;
 
@@ -25,7 +23,7 @@ exp.Login = async(req, res, next) => {
                     })
                 }
                 if (resp) {
-                    console.log(result);
+                    // console.log(result);
                     const token = jwt.sign({
                         phonenumber: result.phonenumber,
                         userId: result._id
@@ -40,7 +38,8 @@ exp.Login = async(req, res, next) => {
                         message: "Signed In",
                         token,
                         userId: result._id,
-                        username:result.username
+                        username:result.username,
+                        isAdmin:result.admin
                     })
                 }
                 return res.status(500).json({
