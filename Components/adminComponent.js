@@ -17,7 +17,7 @@ exp.addCourse = async (req, res, next) => {
             // console.log(course);
             await course.save()
                 .then(respnse => {
-                    return res.status(202).json({
+                    return res.status(201).json({
                         message: "Course added"
                     })
                 })
