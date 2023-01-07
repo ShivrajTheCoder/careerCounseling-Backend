@@ -12,4 +12,10 @@ router.route("/addprofession")
 
 router.route("/getwebsitedetails")
     .get(Admin.getWebDetails);
+
+router.route("/getallrequests")
+    .get(Admin.getAllRequests)
+
+router.route("/acceptrequest/:requestId")
+    .post(Admin.acceptRequest);
 module.exports=router;

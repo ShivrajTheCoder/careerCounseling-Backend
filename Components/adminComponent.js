@@ -1,5 +1,6 @@
 const exp = module.exports;
 const Colleges = require("../Models/Colleges");
+const CounsellingRequest = require("../Models/CounsellingRequest");
 const Course = require("../Models/Courses");
 const Professions = require("../Models/Professions");
 
@@ -152,5 +153,41 @@ exp.getWebDetails=async(req,res,next)=>{
         })
         res.status(200).json({
             data
+        })
+}
+
+exp.getAllRequests=async(req,res,next)=>{
+    await CounsellingRequest.find({})
+        .then(response=>{
+            if(response.length <1){
+                return res.status(404).json({
+                    message:"No requests found"
+                })
+            }
+            return res.status(200).json({
+                response
+            })
+        })
+        .catch(error=>{
+            return res.status(500).json({
+                message:"Internal server error"
+            })
+        })
+}
+
+exp.acceptRequest=async(req,res,next)=>{
+    const {requestId}=req.params;
+    console.log(requestId,req.body);
+    const {callLink}=req.body;
+    await CounsellingRequest.findByIdAndUpdate(requestId,{callLink})
+        .then(response=>{
+            return res.status(200).json({
+                message:"Link sent"
+            })
+        })
+        .catch(error=>{
+            return res.status(500).json({
+                message:"Internal Server Error",
+            })
         })
 }
