@@ -1,6 +1,6 @@
 const express=require('express');
 const router=express.Router();
-const Auth=require("../Components/authComponent");
+const Auth=require("../Controllers/authController");
 
 router.route("/signup")
     .post(Auth.Signup)

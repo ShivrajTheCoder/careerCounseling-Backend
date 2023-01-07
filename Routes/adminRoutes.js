@@ -1,6 +1,6 @@
 const express=require("express");
 const router=express.Router();
-const Admin=require("../Components/adminComponent");
+const Admin=require("../Controllers/adminController");
 router.route("/addcourse")
     .post(Admin.addCourse);
 

@@ -1,6 +1,6 @@
 const express=require('express');
 const router=express.Router();
-const User=require("../Components/userComponent");
+const User=require("../Controllers/userControllerjs");
 router.route("/:userId/updateprofile")
     .post(User.UpdateDetails);
 
