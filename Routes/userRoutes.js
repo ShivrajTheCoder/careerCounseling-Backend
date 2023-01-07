@@ -8,7 +8,7 @@ router.route("/:userId/getuserdetails")
     .get(User.profileDetails);
 
 router.route("/getallcolleges")
-    .get(User.getAllColleges);
+    .get(User.getAllColleges)
 
 router.route("/getallcourses")
     .get(User.getAllCourses);

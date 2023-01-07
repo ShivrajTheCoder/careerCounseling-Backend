@@ -9,4 +9,7 @@ router.route("/addcollege")
 
 router.route("/addprofession")
     .post(Admin.addProfession);
+
+router.route("/getwebsitedetails")
+    .get(Admin.getWebDetails);
 module.exports=router;

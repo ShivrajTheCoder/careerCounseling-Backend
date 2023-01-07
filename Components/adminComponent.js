@@ -102,3 +102,55 @@ exp.addProfession = async (req, res, next) => {
             })
         })
 }
+
+exp.getWebDetails=async(req,res,next)=>{
+    let data={};
+    await Colleges.find({})
+        .then(result=>{
+            if(result.length<1){
+                return res.status(404).json({
+                    message:"Colleges not found",
+                })
+            }
+            data.collegeCount=result.length;
+        })
+        .catch(err=>{
+            return res.status(500).json({
+                err,
+                message:"Internal Server error"
+            })
+        })
+    await Course.find({})
+        .then(result=>{
+            if(result.length<1){
+                return res.status(404).json({
+                    message:"Courses not found",
+                })
+            }
+            data.courseCount=result.length;
+        })
+        .catch(err=>{
+            return res.status(500).json({
+                err,
+                message:"Internal Server error"
+            })
+        })
+        await Professions.find({})
+        .then(result=>{
+            if(result.length<1){
+                return res.status(404).json({
+                    message:"Professions not found",
+                })
+            }
+            data.professionCount=result.length;
+        })
+        .catch(err=>{
+            return res.status(500).json({
+                err,
+                message:"Internal Server error"
+            })
+        })
+        res.status(200).json({
+            data
+        })
+}

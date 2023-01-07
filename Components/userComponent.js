@@ -57,7 +57,7 @@ exp.getAllColleges=async (req,res,next)=>{
                 result
             })
         }
-        return res.status(204).json({
+        return res.status(404).json({
             message:"No college Found"
         })
     })
