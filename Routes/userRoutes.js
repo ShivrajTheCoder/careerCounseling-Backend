@@ -1,6 +1,6 @@
 const express=require('express');
 const router=express.Router();
-const User=require("../Controllers/userControllerjs");
+const User=require("../Controllers/userController.js");
 router.route("/:userId/updateprofile")
     .post(User.UpdateDetails);
 
@@ -17,6 +17,7 @@ router.route("/getallprofessions")
 
 router.route("/getcollege/:id")
     .get(User.getCollege);
+
 router.route("/getcourse/:id")
     .get(User.getCourse);
 

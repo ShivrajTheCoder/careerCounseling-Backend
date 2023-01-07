@@ -3,6 +3,7 @@ const Colleges = require("../Models/Colleges");
 const CounsellingRequest = require("../Models/CounsellingRequest");
 const Course = require("../Models/Courses");
 const Professions = require("../Models/Professions");
+const User = require("../Models/User");
 
 exp.addCourse = async (req, res, next) => {
     // console.log(req.body);
@@ -188,6 +189,27 @@ exp.acceptRequest=async(req,res,next)=>{
         .catch(error=>{
             return res.status(500).json({
                 message:"Internal Server Error",
+            })
+        })
+}
+
+exp.getUserDetails=async(req,res,next)=>{
+    const {userId}=req.params;
+    User.findById(userId)
+        .then(result=>{
+            if(result.length <1){
+                return res.status(404).json({
+                    message:"User Not found"
+                })
+            }
+            return res.status(200).json({
+                result
+            })
+        })
+        .catch(error=>{
+            return res.status(500).json({
+                message:"Internal server error",
+                error
             })
         })
 }

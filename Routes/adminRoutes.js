@@ -1,11 +1,11 @@
-const express=require("express");
-const router=express.Router();
-const Admin=require("../Controllers/adminController");
+const express = require("express");
+const router = express.Router();
+const Admin = require("../Controllers/adminController");
 router.route("/addcourse")
     .post(Admin.addCourse);
 
 router.route("/addcollege")
-.post(Admin.addCollege);
+    .post(Admin.addCollege);
 
 router.route("/addprofession")
     .post(Admin.addProfession);
@@ -18,4 +18,8 @@ router.route("/getallrequests")
 
 router.route("/acceptrequest/:requestId")
     .post(Admin.acceptRequest);
-module.exports=router;
+
+router.route("/getUserDetails/:userId")
+    .get(Admin.getUserDetails);
+
+module.exports = router;
