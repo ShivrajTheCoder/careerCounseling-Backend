@@ -20,5 +20,7 @@ router.route("/getcollege/:id")
 router.route("/getcourse/:id")
     .get(User.getCourse);
 
+router.route("/counsellingrequest/:id")
+    .post(User.counsellingRequest);
 
 module.exports=router;

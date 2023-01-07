@@ -34,7 +34,8 @@ app.use(cors());
 // Routes
 app.use("/authentication",jsonParser,authRoutes);
 app.use("/user",jsonParser,userRoutes);
-app.use("/admin",jsonParser,checkAdmin,adminRoutes);
+// app.use("/admin",jsonParser,checkAdmin,adminRoutes);
+app.use("/admin",jsonParser,adminRoutes);
 app.listen(PORT,()=>{
     console.log(`Listening on Port : ${PORT}`);
 })
