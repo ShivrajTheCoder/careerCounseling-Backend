@@ -21,6 +21,7 @@ router.route("/getcourse/:id")
     .get(User.getCourse);
 
 router.route("/counsellingrequest/:id")
-    .post(User.counsellingRequest);
+    .post(User.counsellingRequest)
+    .get(User.requestStatus);
 
 module.exports=router;

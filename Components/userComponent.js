@@ -168,7 +168,26 @@ exp.counsellingRequest = async (req, res, next) => {
             })
         })
 }
-
+exp.requestStatus=async(req,res,next)=>{
+    const {id}=req.params;
+    await CounsellingRequest.findOne({requestee:id})
+        .then(response=>{
+            if(response.length <0){
+                return res.status(404).json({
+                    message:"No response found"
+                })
+            }
+            return res.status(200).json({
+                response
+            })
+        })
+        .catch(error=>{
+            return res.status(500).json({
+                message:"Internal server Error",
+                error
+            })
+        })
+}
 exp.getAllProfessions = async (req, res, next) => {
     await Professions.find({})
         .then(response => {
