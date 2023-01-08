@@ -16,6 +16,9 @@ const collegeSchema=new Schema({
         type:String,
         required:true
     },
+    official_site:{
+        type:String,
+    },
     location:{
         type:String,
         required:true

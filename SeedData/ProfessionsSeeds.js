@@ -34,7 +34,7 @@ const professionData=[
         "name":"Archeologist",
         "img_url":"https://scx2.b-cdn.net/gfx/news/2021/chan-chan-was-a-citade.jpg",
         "description":"They research the invention of the first stone tool to the invention of wheels. In the career as archeologist, one needs to find and analyse objects and structures to inform our understanding of past economic, social, political, and intellectual life. Mostly excavators analyse or plan for research projects to answer questions and test hypotheses about past cultures. ",
-        "stream":"commerce"
+        "stream":"arts"
       },
 ]
 

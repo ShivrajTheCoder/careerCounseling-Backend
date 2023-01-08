@@ -41,6 +41,12 @@ const courseData=[
         "description":"Bachelor of Arts also known as BA is a three years undergraduate programme. Aspirants who have passed 10+2 in any stream can take admission in this course. There are various BA specializations such as English, History, Hindi, Sociology, Political Science, Urdu, Economics, Tamil, Odia.",
         "duration":"3"
       },
+    {
+        "name":"Bachelor of Education",
+        "stream":"arts",
+        "description":"B.Ed full form is Bachelor of Education, it is a 2 year undergraduate program that is done after graduation. It prepares students for a career in education. Students with a Bachelor of Education (B.Ed.) can advance in a lucrative career as a teacher, school counsellor, or school administrator.",
+        "duration":"2"
+      },
 ]
 
 const uploadCourses=async()=>{

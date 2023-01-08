@@ -178,7 +178,7 @@ exp.getAllRequests=async(req,res,next)=>{
 
 exp.acceptRequest=async(req,res,next)=>{
     const {requestId}=req.params;
-    console.log(requestId,req.body);
+    // console.log(requestId,req.body);
     const {callLink}=req.body;
     await CounsellingRequest.findByIdAndUpdate(requestId,{callLink})
         .then(response=>{
