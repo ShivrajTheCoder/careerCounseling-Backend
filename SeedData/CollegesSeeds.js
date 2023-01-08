@@ -26,7 +26,7 @@ const collegeData = [
         "type": "Private",
         "description": "DIT University was founded by Naveen Agarwal in 1998. In 2012, UGC conferred the Autonomous Status to DIT, further in 2013 the Uttarakhand State Government declared DIT as DIT University. DIT University has been established by Govt. of Uttarakhand vide Act No.10 of 2013 dated 15 February 2013 and is recognised by the UGC[4] under section 2(F) of the UGC Act, 1956. DIT University's campus is located on the foothills of Mussoorie. Dehradun is located 240 kilometres north-east of Delhi. The area of the campus is 25 acres out of which 23 acres is developed, the prominent buildings are Vedanta, Chanakya and Civil block. There is a 2 acre ground available for students, parking, and other facilities are also a available in DIT.",
         "location": "Dehradun",
-        "official_site":"https://www.geu.ac.in/content/geu/en.html",
+        "official_site":"https://www.dituniversity.edu.in/",
         "coursesOffered": ["63ba2ab29d8cec43795bb38b", "63ba2ab29d8cec43795bb38c", "63ba2ab29d8cec43795bb38e", "63ba2ab29d8cec43795bb38f"]
     },
     {
